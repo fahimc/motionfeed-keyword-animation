@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070912" />
+  <title>MotionFeed — Keyword Animation Engine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" aria-live="polite">
+    <canvas id="canvas"></canvas>
+    <div id="scene"></div>
+    <div class="wash"></div>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+
+    <div class="hud">
+      <div class="topbar">
+        <div class="brand"><span class="brand-dot"></span> MotionFeed</div>
+        <div class="category" id="category">Visual Story</div>
+      </div>
+
+      <section class="story">
+        <div class="kicker" id="kicker">Keyword-generated motion</div>
+        <h1 id="headline">The story moves before you read it.</h1>
+        <p class="summary" id="summary">A full-screen animation is selected from the meaning of each story’s keywords.</p>
+        <div class="keywords" id="keywordList"></div>
+        <div class="progress"><i id="progressBar"></i></div>
+      </section>
+    </div>
+
+    <nav class="toolbar" aria-label="Animation controls">
+      <button class="icon-btn" id="editBtn" title="Edit story" aria-label="Edit story">
+        <svg viewBox="0 0 24 24"><path d="M4 17.25V20h2.75L17.81 8.94l-2.75-2.75L4 17.25Zm15.71-10.04a1.003 1.003 0 0 0 0-1.42l-1.5-1.5a1.003 1.003 0 0 0-1.42 0l-1.17 1.17 2.75 2.75 1.34-1Z"/></svg>
+      </button>
+      <button class="icon-btn" id="nextBtn" title="Next demo" aria-label="Next demo">
+        <svg viewBox="0 0 24 24"><path d="m7 18 8.5-6L7 6v12Zm9-12v12h2V6h-2Z"/></svg>
+      </button>
+      <button class="icon-btn" id="pauseBtn" title="Pause animation" aria-label="Pause animation">
+        <svg id="pauseIcon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14Zm8-14v14h4V5h-4Z"/></svg>
+      </button>
+    </nav>
+
+    <section class="composer" id="composer" role="dialog" aria-modal="true" aria-labelledby="composerTitle">
+      <h2 id="composerTitle">Generate a visual story</h2>
+      <p>Enter a headline and keywords. Phrase combinations such as “freezing fog”, “house prices” or “penalty shootout” select more specific animation families.</p>
+      <input class="field" id="headlineInput" maxlength="120" placeholder="Headline" />
+      <input class="field" id="keywordsInput" maxlength="160" placeholder="Keywords: heavy rain, flood warning, travel disruption" />
+      <input class="field" id="summaryInput" maxlength="240" placeholder="Short description (optional)" />
+      <div class="composer-actions">
+        <button class="text-btn" id="cancelBtn">Cancel</button>
+        <button class="primary-btn" id="generateBtn">Generate animation</button>
+      </div>
+    </section>
+
+    <div class="wipe" id="wipe"></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
